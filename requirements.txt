@@ -1,0 +1,8 @@
+torch
+pandas
+numpy
+scikit-learn
+optuna
+matplotlib
+seaborn
+openpyxl
