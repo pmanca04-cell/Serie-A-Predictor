@@ -13,7 +13,7 @@ st.markdown("Previsioni basate su Reti Neurali e Gap Stats")
 
 # --- PARAMETRI RETE ---
 BEST_HIDDEN_LAYERS = 1  
-BEST_HIDDEN_SIZE = 64   
+BEST_HIDDEN_SIZE = 128   
 FILE_PESI = 'serie_a_predictor.pt'
 FILE_DATI = 'complete_data/completo.xlsx'
 
