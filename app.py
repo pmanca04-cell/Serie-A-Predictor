@@ -92,7 +92,9 @@ def carica_modello_e_dati():
 # --- CARICAMENTO DATI ---
 try:
     modello, dataset_raw, dataset_origin, encoder, low_final, span_final = carica_modello_e_dati()
-    squadre_disponibili = sorted(dataset_origin['home_team'].unique())
+    # Isola solo le squadre attive nelle ultime 200 partite per escludere le retrocesse
+    ultime_partite = dataset_origin.tail(200)
+    squadre_disponibili = sorted(ultime_partite['home_team'].unique())
 except Exception as e:
     st.error(f"Errore nel caricamento dei dati. Assicurati che i file esistano. Dettaglio: {e}")
     st.stop()
