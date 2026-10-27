@@ -173,8 +173,8 @@ def objective(trial):
     for split_idx in range(K_SPLITS):
         train_loader, val_loader, _ = get_time_series_loaders(X_train_val, y_train_val, split_idx, batch_size)
         
-        # --- CLASS WEIGHTS MANUALI: 1.0 (Casa), 1.4 (Pareggio), 1.2 (Trasferta) ---
-        pesi_tensor = torch.tensor([1.0, 1.4, 1.2], dtype=torch.float32).to(device)
+        # --- CLASS WEIGHTS MANUALI: 1.0 (Casa), 1.2 (Pareggio), 1.1 (Trasferta) ---
+        pesi_tensor = torch.tensor([1.0, 1.2, 1.1], dtype=torch.float32).to(device)
         criterion = nn.CrossEntropyLoss(weight=pesi_tensor)
         
         model = make_model(hidden_layers, hidden_size, dropout_rate)
@@ -242,7 +242,7 @@ final_model = make_model(best_params['hidden_layers'], best_params['hidden_size'
 optimizer = torch.optim.AdamW(final_model.parameters(), lr=best_params['learning_rate'], weight_decay=best_params['weight_decay'])
 
 # --- CLASS WEIGHTS FINALI MANUALI ---
-pesi_tensor_final = torch.tensor([1.0, 1.4, 1.2], dtype=torch.float32).to(device)
+pesi_tensor_final = torch.tensor([1.0, 1.2, 1.1], dtype=torch.float32).to(device)
 criterion = nn.CrossEntropyLoss(weight=pesi_tensor_final)
 
 final_model.train()
