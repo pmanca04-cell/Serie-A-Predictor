@@ -5,7 +5,7 @@ PyTorch-based neural network for predicting Serie A match outcomes using histori
 ## Key Features
 * **Anti-Data Leakage:** Utilizzo esclusivo di medie mobili (Rolling Averages) e storico H2H calcolati pre-match.
 * **Gap Stats:** Feature engineering avanzato sui differenziali di rendimento (xG, tiri, possesso) per far percepire al modello l'equilibrio effettivo in campo.
-* **Class Weights Manuali:** Bilanciamento della CrossEntropyLoss `[1.0, 1.4, 1.2]` per contrastare lo sbilanciamento statistico e intercettare fisiologicamente i pareggi (X).
+* **Class Weights Manuali:** Bilanciamento della CrossEntropyLoss `[1.0, 1.2, 1.1]` per contrastare lo sbilanciamento statistico e intercettare fisiologicamente i pareggi (X).
 * **Auto-Tuning:** Ricerca automatizzata degli iperparametri (hidden layers, learning rate, ecc.) tramite Optuna con TimeSeriesSplit.
 
 ## Struttura del Progetto
